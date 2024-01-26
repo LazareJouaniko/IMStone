@@ -1,5 +1,11 @@
 package com.imstone.champion;
-import com.imstone.champion.Champion_Type;
-public class Champion {
-    
+import com.imstone.deck.Deck;
+public abstract class Champion {
+    int hp, id;
+    String name;
+    public abstract void attackSpe(Plato p);
+    Deck d ;
+
+
+
 }
