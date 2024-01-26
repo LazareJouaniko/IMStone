@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.imstone.champion;
 import com.imstone.deck.Deck;
 public abstract class Champion {
@@ -9,3 +10,10 @@ public abstract class Champion {
 
 
 }
+=======
+package com.imstone.champion;
+import com.imstone.champion.Champion_Type;
+public class Champion {
+    
+}
+>>>>>>> a5aaa0b81407567c85743e0afd033b016783fedf
