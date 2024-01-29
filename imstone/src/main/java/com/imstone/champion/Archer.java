@@ -7,6 +7,7 @@ public class Archer extends Champion{
 
     public Archer(){
         super();
+        this.mana = 2;
         d = new Deck();
         this.hp = 100;
         Monster m1 = new Fantassin();
@@ -21,6 +22,7 @@ public class Archer extends Champion{
 
     @Override
     public void attackSpe() {
-
+//lalalala*
+this.mana = 0;
     } 
 }

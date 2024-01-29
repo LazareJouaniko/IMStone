@@ -88,16 +88,26 @@ return true;
 
 public  void play_onBoard(Player p1, Player p2){
     while (checkState(p1) == false){
+    if(p1.getChampion().getMana() ==5){
+        System.out.println("Attaque spe disponnible");
+    }
     System.out.println("Selectionner une carte avec laquelle intéragir");
     printCard(p1.getBoard());
     Scanner sc = new Scanner(System.in);
     int index = sc.nextInt();
     Card_Action(p1.getBoard().get(index),p1,p2);
+    p1.getChampion().setMana(p1.getChampion().getMana()+1);
     }
 }
 
-public  void attack(Monster m1, Monster m2){
+public  int attack(Monster m1, Monster m2){
     m2.setHp(m2.getHp()-m1.getAttack());
+    if (m2.getHp() <= 0){
+        //retirer du plateau
+        System.out.print("Monstre tué !");
+        return -1;
+    }
+    return 0;
 }
 public  void heal(Monster m1, Monster m2){
     m2.setHp(m2.getHp()+m1.getAttack());
@@ -152,7 +162,11 @@ if(checkProtecteur(p2) == true){
     while(m.getState() == false){
         scan = sc.nextInt();
         if(p2.getBoard().get(scan) instanceof Protecteur){
-            attack(m, p2.getBoard().get(scan));
+            int r = attack(m, p2.getBoard().get(scan));
+            System.out.print("Valeur de R : "+r);
+            if(r == -1){
+                p2.removeFromBoard(p2.getBoard().get(scan));
+            }
             m.setState(true);
         }else{
             System.out.println("Action Impossible ciblez un protecteur !");
@@ -175,8 +189,12 @@ if(checkProtecteur(p2) == true){
             printCard(p2.getBoard());
             scan = sc.nextInt();
             
-            attack(m, p2.getBoard().get(scan));
+            int c = attack(m, p2.getBoard().get(scan));
             System.out.println(m.getName()+" attaque "+p2.getBoard().get(scan));
+            if (c == -1){
+                System.out.println("Monstre détruit");
+                p2.removeFromBoard(p2.getBoard().get(scan));
+            }
             m.setState(true);
         }
 

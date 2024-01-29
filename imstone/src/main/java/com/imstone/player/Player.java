@@ -37,7 +37,8 @@ public class Player{
         this.board.add(m);
     }
     public void removeFromBoard(Monster m){
-        this.hand.remove(m);
+        this.board.remove(m);
+        
     }
     public String getName(){
         return this.name;
