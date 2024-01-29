@@ -9,6 +9,9 @@ public abstract class Champion {
     public Deck getDeck(){
         return this.d;
     }
+    public int getHp(){
+        return this.hp;
+    }
 
 }
 

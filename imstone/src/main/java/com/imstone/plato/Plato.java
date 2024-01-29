@@ -1,9 +1,6 @@
 package com.imstone.plato;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-import com.imstone.champion.Archer;
 import com.imstone.champion.Champion;
 import com.imstone.champion.FabricChampion;
 import com.imstone.monster.*;
@@ -20,14 +17,9 @@ public class Plato {
         //Champ select 
         System.out.println("Selectionner Champion 1");
         p1 = new Player(Select_Champion(), Select_PlayerName());
-
-
-  //      System.out.println("Selectionner Champion 2");
-      //  p2 = new Player(Select_Champion());
-//
-        //démarrage jeu
-       // généreer premier main
+        p2  = new Player(Select_Champion(), Select_PlayerName());
        first_Hand(p1, 2);
+       first_Hand(p2, 2);
        play_Round(p1, p2);
 
         
@@ -68,7 +60,7 @@ public class Plato {
 }
 
 public void play_onBoard(Player p){
-    while (checkState(p) != true){
+    while (checkState(p) == false){
     System.out.println("Selectionner une carte avec laquelle intéragir");
     Utils.printCard(p.getBoard());
     Scanner sc = new Scanner(System.in);
@@ -92,23 +84,21 @@ public void play_Round(Player p1,Player p2){
     //Afficher Board 
     play_onBoard(p1);
 
-
-
-    //action jouer carte 
 }
 public void Card_Action(Monster m){
-    if (m instanceof Mascotte){
-        //si déjà attaqué ...
-        m.setState(true);
+    if(m.getState()== true){
+        System.out.println("Le monstre a déjà attaqué");
+    }else {
+        if (m instanceof Mascotte){
+            System.out.println("la mascotte à jouer");
     }
-    if (m instanceof Mascotte){
-
-    }
-    if (m instanceof Mascotte){
-
-    }
-    System.out.println("testok");
+        if (m instanceof Protecteur){
+        //System.out.print()
 }
+    
+    }
+}
+   
 
 public Boolean checkState(Player p){
     for (int i =0; i< p.getBoard().size(); i++){
