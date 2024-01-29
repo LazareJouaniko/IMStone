@@ -1,3 +1,4 @@
+
 package com.imstone.deck;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,5 +39,8 @@ public Deck removeAllMonsters(){
         this.l.remove(0);
     }
 return this;
+}
+public List <Monster> getCard(){
+    return this.l;
 }
 }

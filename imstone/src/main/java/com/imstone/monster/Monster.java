@@ -1,8 +1,17 @@
+
 package com.imstone.monster;
-import com.imstone.deck.Deck;
 
 public class Monster {
     int id, hp;
+    boolean state ;
     String name;
-    Deck deck;
+
+    public boolean getState(){
+        return this.state;
+    }
+    public void setState(boolean state){
+       this.state = state;
+        
+    }
+    
 }
