@@ -1,6 +1,8 @@
 package com.imstone.player;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import com.imstone.champion.Champion;
 import com.imstone.monster.*;
 
@@ -23,6 +25,7 @@ public class Player{
     public List<Monster> getBoard(){
         return this.board;
     }
+
     public Champion getChampion(){
         return this.champion;
     }
@@ -49,6 +52,8 @@ public class Player{
     public Monster draw_Card(){
 
         //tirer carte, mettre aléatoire 
-        return this.champion.getDeck().getCard().get(0);
+        Random r = new Random();
+        int index = r.nextInt(this.champion.getDeck().getCard().size());
+        return this.champion.getDeck().getCard().get(index);
     }
 }

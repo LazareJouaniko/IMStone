@@ -5,12 +5,12 @@ public abstract class Monster {
     int id, hp;
     String name;
     int attack;
-    int defense;
-    int health;
     boolean state ;
 
-    public abstract int useskills();
-
+    public String getName(){
+        return this .name;
+    }
+   
     public int getHp() {
         return hp;
     }
@@ -31,21 +31,7 @@ public abstract class Monster {
         this.attack = attack;
     }
 
-    public void getDefense(int defense) {
-        this.defense = defense;
-    }
 
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getHealth() {
-        return health;
-    }
     public boolean getState(){
         return this.state;
     }
@@ -53,7 +39,9 @@ public abstract class Monster {
         this.state = state;
     }
     //
-    //public toString(){
-   //     System.out.print(this.name)
-    //}
+    @Override
+    public String toString(){
+       String str = this.getName()+" PV : "+this.getHp()+" ATTACK :"+this.getAttack();
+       return str;
+    }
 }
